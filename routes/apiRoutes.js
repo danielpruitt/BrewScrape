@@ -1,12 +1,12 @@
-var express = require("express");
-var router= express.Router();
-var mongoose = require("mongoose");
+var cheerio = require("cheerio");
 var request = require("request");
 
 var db = require("../models/index");
 
 //scraper 
-apiRouter.get("/scrape", function (req, res) {
+module.exports = function (app) {
+
+app.get("/scrape", function (req, res) {
     request("https://www.brewbound.com/", function (err, response, html) {
         //call cheerio with a $
         var $ = cheerio.load(html);
@@ -30,6 +30,8 @@ apiRouter.get("/scrape", function (req, res) {
                     return res.json(err)
                 })
         });
+
+        //if this could be brought in that would be great. 
         // $("picture").each(function (i, element) {
         //     var img = $(element).children().attr("srcset");
         // var link = $(element).parent().attr("href");
@@ -39,7 +41,7 @@ apiRouter.get("/scrape", function (req, res) {
     res.send("Scrape Complete")
 });
 
-apiRouter.get("/articles", function (req, res) {
+app.get("/articles", function (req, res) {
     db.Article.find({})
         .then(function (dbArticle) {
             res.json(dbArticle)
@@ -49,7 +51,7 @@ apiRouter.get("/articles", function (req, res) {
         });
 });
 
-apiRouter.get("/articles/:id", function (req, res) {
+app.get("/articles/:id", function (req, res) {
     db.Article.findOne({ _id: req.params.id })
         .populate("note")
         .then(function (dbArticle) {
@@ -60,7 +62,7 @@ apiRouter.get("/articles/:id", function (req, res) {
         });
 });
 
-apiRouter.post("/articles/:id", function (req, res) {
+app.post("/articles/:id", function (req, res) {
     db.Note.create(req.body)
         .then(function (dbNote) {
             return db.Article.findOneAndUpdate({ _id: req.params.id }, { note: dbNote._id }, { new: true })
@@ -73,4 +75,4 @@ apiRouter.post("/articles/:id", function (req, res) {
         });
 });
 
-module.exports = apiRouter;
+}
