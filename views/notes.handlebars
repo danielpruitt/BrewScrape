@@ -1,0 +1,11 @@
+<div id="notes" class="container indigo lighten-5">
+    <div class="row">
+        {{#each Note}}
+        <div class="note">
+            <h4>Title:</h4>
+            <h5>{{this.title}}</h5>
+            <h4>Note:</h4>
+            <h5>{{this.body}}</h5>
+        </div>
+        {{/each}}
+    </div>

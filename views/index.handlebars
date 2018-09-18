@@ -1,4 +1,4 @@
-<div id="wrapper">
+
     <div class="navbar-fixed">
         <nav>
             <div class="nav-wrapper grey darken-4">
@@ -6,13 +6,14 @@
             </div>
         </nav>
     </div>
-    
-    
-    <div id="articles" class="container">
+
+
+    <div id="articles" class="container indigo lighten-5">
         <div class="row">
-            <div class="col ">
-                {{#each Article}}
-                
+
+            {{#each Article}}
+            <div class="col s12 m6 l4">
+
                 <div class="card large hoverable">
                     <div class="card-image">
                         <img srcset="{{this.img}}" />
@@ -21,21 +22,39 @@
 
                     <div class="card-content">
                         <a href="{{this.link}}" target="_blank">{{this.link}}</a>
-                        <p >{{this.summary}}</p>
+                        <p class="truncate">{{this.summary}}</p>
+                        <button class="btn activator blue-grey darken-2" data-id={{this.id}}>Notes</button>
                     </div>
-                    
+
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Notes<i class="material-icons right">close</i></span>
+                        <div class="notes">
+
+                        </div>
+                    </div>
+
                 </div>
-                {{/each}}
+            </div>
+
+            {{/each}}
+
+            <div class="col s12 m6 l4">
+
             </div>
         </div>
     </div>
 
-    <div id="notes">
-        {{#each Note}}
-        <div>
-            <h4>{{this.title}}</h4>
-            <h4>{{this.body}}</h4>
+
+{{!-- <div id="notes" class="container indigo lighten-5">
+    <div class="row">
+        {{!-- {{#each Note}}
+        <div class="note">
+            <h4>Title:</h4>
+            <h5>{{this.title}}</h5>
+            <h4>Note:</h4>
+            <h5>{{this.body}}</h5>
         </div>
-        {{/each}}
+        {{/each}} --}}
     </div>
-</div>
+
+</div> --}}

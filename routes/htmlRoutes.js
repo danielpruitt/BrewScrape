@@ -27,4 +27,17 @@ module.exports = function (app) {
                 });
             });
     });
+
+    app.get("/notes", function (req, res) {
+        db.Article.find({})
+            .then(function (dbArticles) {
+                return res.render("index", {
+                    Article: dbArticles
+                }).then(function (dbNotes) {
+                    return res.render("index", {
+                        Note: dbNotes
+                    })
+                });
+            });
+    });
 };
