@@ -8,15 +8,19 @@ var ArticleSchema = new Schema({
         required: true
     },
     link: {
-        type:String, 
+        type: String,
         required: true
     },
-    imgLink: {
+    img: {
         type: String
     },
+    summary: {
+        type: String
+    }
+    ,
     note: {
         type: Schema.Types.ObjectId,
-        ref:"Note"
+        ref: "Note"
     }
 });
 

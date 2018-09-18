@@ -1,11 +1,41 @@
 <div id="wrapper">
-    <h1>Welcome to BrewScrape</h1>
-    <div id="articles">
-        {{#each Article}}
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper grey darken-4">
+                <a href="/" class="brand-logo center">BrewScrape</a>
+            </div>
+        </nav>
+    </div>
+    
+    
+    <div id="articles" class="container">
+        <div class="row">
+            <div class="col ">
+                {{#each Article}}
+                
+                <div class="card large hoverable">
+                    <div class="card-image">
+                        <img srcset="{{this.img}}" />
+                        <span class="card-title title-wrap" data-id={{this.id}}>{{this.title}}</span>
+                    </div>
+
+                    <div class="card-content">
+                        <a href="{{this.link}}" target="_blank">{{this.link}}</a>
+                        <p >{{this.summary}}</p>
+                    </div>
+                    
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+
+    <div id="notes">
+        {{#each Note}}
         <div>
-            <h3>{{this.title}}</h3>
+            <h4>{{this.title}}</h4>
+            <h4>{{this.body}}</h4>
         </div>
         {{/each}}
     </div>
-    <div id="notes"></div>
 </div>
