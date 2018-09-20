@@ -2,7 +2,8 @@ $(document).ready(function () {
 
     // Whenever someone clicks the button the activator opens the comment fields 
     $(".activator").on("click", function () {
-
+        $(".titleinput").val("");
+        $(".bodyinput").val("");
         // Save the id from the button, id comes from the parent Article
         var thisId = $(this).attr("data-id");
 
