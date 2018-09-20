@@ -4,7 +4,7 @@ $(document).ready(function () {
     $(".activator").on("click", function () {
 
         // Empty the notes from the note section
-        // $(".notes").empty();
+        $(".notes").empty();
         // Save the id from the button, id comes from the parent Article
         var thisId = $(this).attr("data-id");
 
