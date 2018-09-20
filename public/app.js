@@ -20,12 +20,6 @@ $(document).ready(function () {
                 var bodyInput = $("#" + thisId + "body").val();
                 console.log("title:" + titleInput)
                 console.log("body:" + bodyInput)
-
-                //deletes note but does not remove from the database. this means that upon reload the comment will still be in
-                $(".delNote").on("click", function () {
-                    $(".titleinput").val("");
-                    $(".bodyinput").val("");
-                });
                 // If there's a note in the article
                 if (data.note) {
                     // Place the title of the note in the title input
@@ -38,13 +32,7 @@ $(document).ready(function () {
 
     $(".savenote").on("click", function () {
         event.preventDefault();
-        // Grab the id associated with the article from the submit button
-        var thisId = $(this).attr("id");
-        // console.log(titleInput)
-        // console.log(bodyInput)
-
-        //variables for testing
-        
+        //variables for for the data-id        
         var thisId = $(this).attr("data-id");
         console.log(thisId)
 
@@ -61,19 +49,37 @@ $(document).ready(function () {
         })
             // With that done
             .then(function (data) {
+                
                 // Log the response
                 console.log(data);
                 // Empty the notes section
                 $(".notes").empty();
-                $(".notes").append("<h4>Thank you for your submission, please click the X to continue.</h4>");
+                
+                location.reload();
+            
 
             });
 
         // Also, remove the values entered in the input and textarea for note entry
         $(".titleinput").val("");
         $(".bodyinput").val("");
+
+    });
+    //this delete click does not erase from the database, all notes are stored regardless. the user sees them as empty and can input a new note
+    $(".delNote").on("click", function() {
+        event.preventDefault();
+        //variables for for the data-id        
+        var thisId = $(this).attr("data-id");
+        console.log(thisId)
+        $(".titleinput").val("");
+        $(".bodyinput").val("");
+        $(".hide").hide();
+        
+
+
     });
     
+
 
     $(".newScrape").on("click", function newScrape() {
         $.get("/api/fetch").then(function (data) {

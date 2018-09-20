@@ -2,7 +2,16 @@
     <nav>
         <div class="nav-wrapper grey darken-4">
             <a href="/" class="brand-logo center newScrape">BrewScrape</a>
-            <a class="right ">Click the logo for more articles!</a>
+            <ul class="right">
+                <li>
+                    <a href="/notes"><strong>Notes</strong></a>
+                </li>
+                <li>
+                    <a class="right "><strong>Click the logo for more articles!</strong><a>
+                </li>
+            </ul>
+            
+            
         </div>
 
     </nav>
@@ -33,12 +42,12 @@
                             <div id="{{this.id}}" class="note-form">
                                 <p>{{this.title}}</p>
                                 <p><strong>Title:</strong></p>
-                                <input type="text" id="{{this.id}}title"  class="" name="body" />
+                                <input type="text" id="{{this.id}}title"  class="titleinput" name="body" />
                                 <p><strong>Body:</strong></p>
-                                <input type="text" id="{{this.id}}body" class="" name="body" />
+                                <input type="text" id="{{this.id}}body" class="bodyinput" name="body" />
                             
                                 <button type="submit" data-id="{{this.id}}" id="{{this.id}}save savenote" class="savenote waves-effect waves-light blue-grey darken-2 btn">Save Comment</button>
-                                <button id="{{this.id}}del" class="waves-effect waves-light blue-grey darken-2 btn delNote">Delete </button>
+                                <button data-id="{{this.id}}" class='waves-effect waves-light blue-grey darken-2 btn delNote'>Delete</button>
                             </div>
                             
 

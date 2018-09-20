@@ -24,10 +24,11 @@ module.exports = function (app) {
             });
     });
 
+
     app.get("/articles", function (req, res) {
         db.Article.find({})
             .then(function (dbArticles) {
-                return res.render("articles",{
+                return res.render("articles", {
                     Article: dbArticles
                 })
             });

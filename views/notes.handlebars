@@ -1,12 +1,38 @@
+{{!--
 <div id="notes" class="container indigo lighten-5">
     <div class="row">
         {{#each Note}}
         <div class="notes">
-            <h4>Title:</h4>
-            <h5>{{this.title}}</h5>
-            <h4>Note:</h4>
-            <h5>{{this.body}}</h5>
-            <button data-id="{{this.id}}" class= 'waves-effect waves-light blue-grey darken-2 btn delNote'>Delete</button>
+            <div id="{{this.id}}">
+                {{this.id}}
+                <h5 class="titleinput">Title:{{this.title}} </h5>
+                <p class="bodyinput">Note:{{this.body}}</p>
+
+                <button class='waves-effect waves-light blue-grey darken-2 btn delNote'>Delete</button>
+            </div>
+
+
         </div>
         {{/each}}
+    </div> --}}
+    <div class="container">
+        <div class="row">
+            {{#each Note}}
+            <div class="col s12 m6 l4">
+
+                <div class="card large hoverable">
+                    <div class="card-content">
+                        <div id="{{this.id}}">
+                            
+                            <h5 class="titleinput">Title:{{this.title}} </h5>
+                            <p class="bodyinput">Note:{{this.body}}</p>
+
+                            {{!-- <button data-id="{{this.id}}" class='waves-effect waves-light blue-grey darken-2 btn delNote'>Delete</button> --}}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            {{/each}}
+        </div>
     </div>
