@@ -3,8 +3,6 @@ $(document).ready(function () {
     // Whenever someone clicks the button the activator opens the comment fields 
     $(".activator").on("click", function () {
 
-        // Empty the notes from the note section
-        $(".notes").empty();
         // Save the id from the button, id comes from the parent Article
         var thisId = $(this).attr("data-id");
 
