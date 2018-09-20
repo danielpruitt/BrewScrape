@@ -1,11 +1,12 @@
 <div id="notes" class="container indigo lighten-5">
     <div class="row">
         {{#each Note}}
-        <div class="note">
+        <div class="notes">
             <h4>Title:</h4>
             <h5>{{this.title}}</h5>
             <h4>Note:</h4>
             <h5>{{this.body}}</h5>
+            <button data-id="{{this.id}}" class= 'waves-effect waves-light blue-grey darken-2 btn delNote'>Delete</button>
         </div>
         {{/each}}
     </div>

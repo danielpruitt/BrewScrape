@@ -41,7 +41,7 @@ require("./routes/htmlRoutes")(app);
 //scraper 
 // can probably delete this, once I get handlebars working
 
-app.get("/scrape", function (req, res) {
+app.get("/api/fetch", function (req, res) {
     request("https://www.brewbound.com/", function (err, response, html) {
         //call cheerio with a $
         var $ = cheerio.load(html);
@@ -59,13 +59,15 @@ app.get("/scrape", function (req, res) {
             var $divImg = $(element).find("picture");
             var img = $divImg.children().attr("srcset");
 
+            //results array will be pushed to the database
             results.push({
                 title: title,
                 link: link,
                 img: img,
                 summary: summary
             });
-            console.log(results)
+
+            //create each object in Results in the database
             db.Article.create(results)
                 .then(function (dbArticle) {
                     console.log(dbArticle)

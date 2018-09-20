@@ -6,3 +6,11 @@
 body{
     background-color: #455a64 
 }
+
+.trunc {
+    width: 220px;
+    height:70px;
+    /* white-space: nowrap; */
+    overflow: hidden;
+    text-overflow: ellipsis
+}
