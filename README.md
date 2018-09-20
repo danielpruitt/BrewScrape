@@ -13,4 +13,4 @@ This app was built for a Georgia Tech homework assignment to demonstrate skill i
 
 Other dependencies are involved on the backend to assist in retrieving, parsing, and logging the data
 
-![screenshot](brewScrape.JPG)
+![BrewScrape](brewScrape.JPG)
